@@ -26,7 +26,6 @@
     "airbnb"
   ],
   "rules": {
-    "no-unused-expressions": "off",
     "jsx-a11y/label-has-associated-control": "off",
     "react/jsx-filename-extension": [
       "warn",
