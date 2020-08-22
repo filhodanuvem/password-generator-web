@@ -2,7 +2,7 @@ name: ci
 
 on:
   pull_request:
-
+  push: 
 jobs:
   commitlint:
     runs-on: ubuntu-latest
@@ -13,3 +13,12 @@ jobs:
       - uses: wagoid/commitlint-github-action@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+  cypress:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - run: npm i 
+      - run: npm start & 
+      - run: npm run cypress-cli
