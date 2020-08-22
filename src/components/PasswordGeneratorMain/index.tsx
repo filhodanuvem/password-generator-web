@@ -122,7 +122,7 @@ const PasswordGeneratorMain: React.FC = () => {
       <Title>Password Generator</Title>
 
       <ResultContainer>
-        <ResultSpan>{password}</ResultSpan>
+        <ResultSpan id="resultSpan">{password}</ResultSpan>
         <ResultCopyToClipboardButton id="clipboard" onClick={copyToClipboard}>
           <img
             src={ClipboardIcon}
@@ -137,6 +137,7 @@ const PasswordGeneratorMain: React.FC = () => {
         <Setting>
           <label>Password Length</label>
           <PasswordLengthInput
+            id="passwordLengthInput"
             value={passwordLength}
             onChange={(e) => setPasswordLength(Number(e.target.value))}
           />
@@ -145,6 +146,7 @@ const PasswordGeneratorMain: React.FC = () => {
         <Setting>
           <label>Add Initial Text</label>
           <DefaultInitialTextInput
+            id="defaultInitialTextInput"
             value={initialText}
             onChange={(e) => setInitialText(e.target.value)}
           />
@@ -152,7 +154,7 @@ const PasswordGeneratorMain: React.FC = () => {
 
         <Setting>
           <label>Include Uppercase Letters</label>
-          <CheckBox defaultChecked onChange={() => setUppercase(!uppercase)} />
+          <CheckBox id="uppercase" defaultChecked onChange={() => setUppercase(!uppercase)} />
         </Setting>
 
         <Setting>
@@ -167,11 +169,12 @@ const PasswordGeneratorMain: React.FC = () => {
 
         <Setting>
           <label>Include Symbols</label>
-          <CheckBox onChange={() => setSymbols(!symbols)} />
+          <CheckBox id="symbols" onChange={() => setSymbols(!symbols)} />
         </Setting>
       </div>
 
       <GeneratePasswordButton
+        id="generateButton"
         onClick={() => {
           const passwordGenerated = generatePassword();
           if (passwordGenerated === null) return;
